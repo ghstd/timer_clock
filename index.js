@@ -324,6 +324,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			input.setSelectionRange(pos - 1, pos - 1)
 		}
 
+		if (/(^[3-9])|(^\d[4-9])|(:[6-9]$)|([6-9]\d$)/.test(input.value)) {
+			arr.splice(pos - 1, 1)
+			input.value = arr.join('')
+			input.setSelectionRange(pos - 1, pos - 1)
+		}
+
 		if (!/:/.test(input.value)) {
 			arr.splice(pos, 0, ':')
 			input.value = arr.join('')
